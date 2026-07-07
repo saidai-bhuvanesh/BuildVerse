@@ -1,6 +1,7 @@
 :root {
   --background: #ffffff;
   --foreground: #0a0a0a;
+  --text-main: #0a0a0a;
   
   --primary: #9333ea; 
   --primary-foreground: #ffffff;
@@ -23,6 +24,7 @@
 [data-theme='dark'] {
   --background: #0a0a0a;
   --foreground: #ffffff;
+  --text-main: #ffffff;
   
   --primary: #a855f7; 
   --primary-foreground: #ffffff;
