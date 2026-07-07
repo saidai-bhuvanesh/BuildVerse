@@ -106,7 +106,7 @@ export default function ContributeSection() {
           <a 
             href="https://github.com/MistryVishwa/BuildVerse?tab=contributing-ov-file" 
             target="_blank" 
-            rel="noreferrer" 
+            rel="noopener noreferrer" 
             className={styles.ctaButton}
           >
             Read Contributing Guide <ArrowRight size={20} />

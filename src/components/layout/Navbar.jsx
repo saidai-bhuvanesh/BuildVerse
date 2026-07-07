@@ -75,7 +75,7 @@ export default function Navbar() {
 
         <div className={styles.actions}>
           <ThemeToggle />
-          <a href="https://github.com/MistryVishwa/BuildVerse" target="_blank" rel="noreferrer" className="btn btn-outline" style={{ padding: '0.5rem 1rem' }}>
+          <a href="https://github.com/MistryVishwa/BuildVerse" target="_blank" rel="noopener noreferrer" className="btn btn-outline" style={{ padding: '0.5rem 1rem' }}>
             <FaGithub size={18} />
             <span>Github</span>
           </a>

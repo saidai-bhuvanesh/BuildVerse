@@ -22,14 +22,14 @@ export default function Footer() {
             <h4>Platform</h4>
             <Link href="/projects">Showcase</Link>
             <Link href="/contributors">Contributors</Link>
-            <a href="https://github.com/MistryVishwa/BuildVerse/issues" target="_blank" rel="noreferrer">Add Project</a>
+            <a href="https://github.com/MistryVishwa/BuildVerse/issues" target="_blank" rel="noopener noreferrer">Add Project</a>
           </div>
           
           <div className={styles.linkGroup}>
             <h4>Community</h4>
             <Link href="/#about">About Us</Link>
             <Link href="/faq">FAQ</Link>
-            <a href="https://github.com/MistryVishwa/BuildVerse" target="_blank" rel="noreferrer">GitHub</a>
+            <a href="https://github.com/MistryVishwa/BuildVerse" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
         </div>
         
@@ -38,13 +38,13 @@ export default function Footer() {
             © 2026 BuildVerse. Built by MistryVishwa
           </p>
           <div className={styles.socialLinks}>
-            <a href="https://github.com/MistryVishwa/" target="_blank" rel="noreferrer" aria-label="GitHub">
+            <a href="https://github.com/MistryVishwa/" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
               <FaGithub size={20} />
             </a>
-            <a href="https://www.linkedin.com/in/vishwa-mistry/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+            <a href="https://www.linkedin.com/in/vishwa-mistry/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
               <FaLinkedin size={20} />
             </a>
-            <a href="https://www.instagram.com/_mistry_vishwa_/" target="_blank" rel="noreferrer" aria-label="Instagram">
+            <a href="https://www.instagram.com/_mistry_vishwa_/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
               <FaInstagram size={20} />
             </a>
           </div>

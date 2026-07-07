@@ -115,11 +115,11 @@ export default function ProjectCard({ project, index = 0 }) {
         </div>
         
         <p className={styles.authorLine}>
-          by <a href={`https://github.com/${project.author.github}`} target="_blank" rel="noreferrer" style={{ fontWeight: 'bold', color: 'var(--text-main)', textDecoration: 'none' }} onClick={(e) => e.stopPropagation()}>@{project.author.github}</a>
+          by <a href={`https://github.com/${project.author.github}`} target="_blank" rel="noopener noreferrer" style={{ fontWeight: 'bold', color: 'var(--text-main)', textDecoration: 'none' }} onClick={(e) => e.stopPropagation()}>@{project.author.github}</a>
         </p>
 
         <div className={styles.cardFooter}>
-          <a href={project.demoUrl || `/live/${project.slug}/index.html`} target="_blank" rel="noreferrer" className={styles.openBtn}>
+          <a href={project.demoUrl || `/live/${project.slug}/index.html`} target="_blank" rel="noopener noreferrer" className={styles.openBtn}>
             Open
           </a>
         </div>

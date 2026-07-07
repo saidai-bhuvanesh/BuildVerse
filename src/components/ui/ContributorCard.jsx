@@ -9,7 +9,7 @@ export default function ContributorCard({ contributor, index }) {
     <motion.a
       href={contributor.html_url}
       target="_blank"
-      rel="noreferrer"
+      rel="noopener noreferrer"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.1, duration: 0.5 }}
