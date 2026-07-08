@@ -4,6 +4,8 @@ import { FaGithub, FaTwitter, FaLinkedin, FaInstagram } from "react-icons/fa";
 import styles from "./Footer.module.css";
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear();
+  
   return (
     <footer className={styles.footer}>
       <div className={`container ${styles.footerContainer}`}>
@@ -35,7 +37,7 @@ export default function Footer() {
         
         <div className={styles.footerBottom}>
           <p className={styles.copyright}>
-            © 2026 BuildVerse. Built by MistryVishwa
+            © {currentYear} BuildVerse. Built by MistryVishwa
           </p>
           <div className={styles.socialLinks}>
             <a href="https://github.com/MistryVishwa/" target="_blank" rel="noreferrer" aria-label="GitHub">

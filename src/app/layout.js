@@ -17,6 +17,22 @@ const geistMono = Geist_Mono({
 export const metadata = {
   title: "BuildVerse - Open-Source Showcase",
   description: "An open-source ecosystem to submit, discover, and collaborate on projects.",
+  keywords: ["open-source", "projects", "portfolio", "developers", "collaboration"],
+  openGraph: {
+    title: "BuildVerse - Open-Source Showcase",
+    description: "An open-source ecosystem to submit, discover, and collaborate on projects.",
+    type: "website",
+    siteName: "BuildVerse",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "BuildVerse - Open-Source Showcase",
+    description: "An open-source ecosystem to submit, discover, and collaborate on projects.",
+  },
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+  },
 };
 
 export default function RootLayout({ children }) {
