@@ -81,3 +81,57 @@
   border-radius: var(--radius);
   border: 1px dashed var(--border);
 }
+
+/* Skeleton Loading States */
+.skeletonCard {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.skeletonImage {
+  height: 220px;
+  background: var(--muted);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.skeletonContent {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.skeletonTitle {
+  height: 24px;
+  width: 70%;
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+.skeletonText {
+  height: 16px;
+  width: 100%;
+  background: var(--muted);
+  border-radius: 4px;
+}
+
+.skeletonTags {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.skeletonTag {
+  height: 24px;
+  width: 60px;
+  background: var(--muted);
+  border-radius: 100px;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
