@@ -31,7 +31,12 @@ export default function ProjectsPage() {
     fetchProjects();
 
     const loadFavorites = () => {
-      setFavorites(JSON.parse(localStorage.getItem("buildverse_favorites") || "[]"));
+      try {
+        const stored = localStorage.getItem("buildverse_favorites");
+        setFavorites(stored ? JSON.parse(stored) : []);
+      } catch {
+        setFavorites([]);
+      }
     };
     loadFavorites();
     window.addEventListener("favoritesChanged", loadFavorites);
@@ -63,7 +68,21 @@ export default function ProjectsPage() {
 
         <div className="grid grid-cols-3">
           {isLoading ? (
-            <p className="text-muted">Loading projects...</p>
+            <>
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className={`glass-panel ${styles.skeletonCard}`}>
+                  <div className={styles.skeletonImage}></div>
+                  <div className={styles.skeletonContent}>
+                    <div className={styles.skeletonTitle}></div>
+                    <div className={styles.skeletonText}></div>
+                    <div className={styles.skeletonTags}>
+                      <div className={styles.skeletonTag}></div>
+                      <div className={styles.skeletonTag}></div>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </>
           ) : (
             filteredProjects.map((project, i) => (
               <ProjectCard key={project.slug} project={project} index={i} />

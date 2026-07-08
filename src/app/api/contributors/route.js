@@ -4,10 +4,14 @@ import path from 'path';
 
 export async function GET() {
   try {
-    // 1. Fetch dynamic data from GitHub
+    // 1. Fetch dynamic data from GitHub with caching
     const [pullsRes, commitsRes] = await Promise.all([
-      fetch('https://api.github.com/repos/MistryVishwa/BuildVerse/pulls?state=closed&per_page=100', { cache: 'no-store' }),
-      fetch('https://api.github.com/repos/MistryVishwa/BuildVerse/commits?per_page=100', { cache: 'no-store' })
+      fetch('https://api.github.com/repos/MistryVishwa/BuildVerse/pulls?state=closed&per_page=100', { 
+        next: { revalidate: 300 } // Cache for 5 minutes
+      }),
+      fetch('https://api.github.com/repos/MistryVishwa/BuildVerse/commits?per_page=100', { 
+        next: { revalidate: 300 } // Cache for 5 minutes
+      })
     ]);
 
     if (!pullsRes.ok) throw new Error('Failed to fetch pulls from GitHub API');
