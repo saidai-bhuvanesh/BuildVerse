@@ -7,15 +7,29 @@ import { Heart, Github, ExternalLink, ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import styles from "./ProjectCard.module.css";
 
-// Helper to generate a consistent gradient based on a string
-function stringToColor(str) {
-  let hash = 0;
-  for (let i = 0; i < str.length; i++) {
-    hash = str.charCodeAt(i) + ((hash << 5) - hash);
+// Allowed domains for demo URLs
+const ALLOWED_DOMAINS = ['github.io', 'vercel.app', 'netlify.app', 'pages.dev'];
+
+// Validate if URL is safe to load in iframe
+function isSafeUrl(url) {
+  if (!url) return true; // Default to local preview
+  try {
+    const parsed = new URL(url);
+    // Only allow same-origin and trusted domains
+    return ALLOWED_DOMAINS.some(domain => 
+      parsed.hostname === domain || parsed.hostname.endsWith('.' + domain)
+    );
+  } catch {
+    return true; // If URL parsing fails, use local preview
   }
-  const color1 = `hsl(${hash % 360}, 70%, 50%)`;
-  const color2 = `hsl(${(hash + 40) % 360}, 70%, 30%)`;
-  return `linear-gradient(135deg, ${color1}, ${color2})`;
+}
+
+// Get safe iframe source
+function getSafeDemoUrl(demoUrl, slug) {
+  if (demoUrl && isSafeUrl(demoUrl)) {
+    return demoUrl;
+  }
+  return `/live/${slug}/index.html`;
 }
 
 export default function ProjectCard({ project, index = 0 }) {
@@ -72,7 +86,7 @@ export default function ProjectCard({ project, index = 0 }) {
         }}
       >
         <iframe 
-          src={project.demoUrl || `/live/${project.slug}/index.html`}
+          src={getSafeDemoUrl(project.demoUrl, project.slug)}
           tabIndex="-1"
           style={{
             position: 'absolute',
@@ -119,7 +133,7 @@ export default function ProjectCard({ project, index = 0 }) {
         </p>
 
         <div className={styles.cardFooter}>
-          <a href={project.demoUrl || `/live/${project.slug}/index.html`} target="_blank" rel="noreferrer" className={styles.openBtn}>
+          <a href={getSafeDemoUrl(project.demoUrl, project.slug)} target="_blank" rel="noopener noreferrer" className={styles.openBtn}>
             Open
           </a>
         </div>
